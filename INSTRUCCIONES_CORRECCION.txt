@@ -1,0 +1,20 @@
+VIDRIERÍA GARMENDIA - corrección para entrega
+
+1. Abrir VidreriaGarmendia.sln en Visual Studio con .NET 8 instalado.
+2. La página principal se sirve desde wwwroot/index.html. Swagger sigue en /swagger.
+3. Ambos canales utilizan POST /api/Contactos y GET /api/Contactos.
+4. Por seguridad, el ZIP NO incluye la contraseña de Azure SQL.
+   Configurar AzureSQL mediante secretos locales del proyecto:
+      cd VidreriaGarmendia
+      dotnet user-secrets set "ConnectionStrings:AzureSQL" "CADENA_COMPLETA_DE_AZURE"
+   Ejecutar con el perfil https / entorno Development.
+   Alternativa de producción: configurar ConnectionStrings__AzureSQL en App Service.
+5. Probar POST en Swagger con Nombre, Correo válido, Telefono, Mensaje.
+   Luego usar GET /api/Contactos para verificar la inserción.
+6. Probar el formulario en https://localhost:7241/ con correo válido y repetir GET.
+7. El botón de WhatsApp se presenta como enlace tras un guardado exitoso, para evitar bloqueos de pop-ups.
+8. Si GET/POST falla, comprobar acceso de red, firewall de Azure SQL, autenticación y existencia de dbo.Contactos.
+9. No se ejecutaron pruebas contra Azure SQL, por no tener acceso al servidor ni a su conexión desde este entorno.
+
+IMPORTANTE: el script scripts/crear_tabla_contactos.sql es solo de referencia: NO ejecutarlo sobre
+la base de datos de producción sin revisar antes la existencia y estructura de dbo.Contactos.

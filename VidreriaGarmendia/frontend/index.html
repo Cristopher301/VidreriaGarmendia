@@ -1,0 +1,534 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#1c2b3a">
+    <meta name="description" content="Vidriería Garmendia - Ventanas, puertas, vidrios fijos y vitrinas de aluminio y vidrio.">
+    <title>Vidriería Garmendia</title>
+    
+    <!-- ESTOS ESTILOS INTERNOS ASEGURAN QUE TODO SE VEA Y NO FALTE NADA -->
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            background-color: #f4f6f9;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        /* Barra superior */
+        .top-bar {
+            background-color: #1c2b3a;
+            color: #fff;
+            padding: 8px 20px;
+            font-size: 14px;
+        }
+
+        .top-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .top-contact {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .top-contact a {
+            color: #25d366;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        /* Header / Menú de navegación */
+        header {
+            background-color: #ffffff;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .header-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 15px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 22px;
+            color: #1c2b3a;
+            text-decoration: none;
+        }
+
+        .logo strong {
+            color: #0078d4;
+        }
+
+        .nav-links {
+            list-style: none;
+            display: flex;
+            gap: 20px;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #333;
+            font-weight: 600;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: #0078d4;
+        }
+
+        .header-button {
+            background-color: #25d366;
+            color: white;
+            padding: 8px 16px;
+            border-radius: 4px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: background 0.3s;
+        }
+
+        .header-button:hover {
+            background-color: #1ebe5d;
+        }
+
+        /* Evita que el menú tape las secciones al hacer clic */
+        section {
+            scroll-margin-top: 90px;
+        }
+
+        /* Sección Hero (Inicio) */
+        .hero {
+            background: linear-gradient(rgba(28, 43, 58, 0.8), rgba(28, 43, 58, 0.8)), url('https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1200&q=80') no-repeat center center/cover;
+            color: white;
+            padding: 100px 20px;
+            text-align: center;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .hero-small {
+            font-size: 14px;
+            letter-spacing: 2px;
+            color: #61dafb;
+            margin-bottom: 10px;
+        }
+
+        .hero h1 {
+            font-size: 42px;
+            margin-bottom: 20px;
+        }
+
+        .hero-description {
+            font-size: 18px;
+            margin-bottom: 30px;
+            color: #d1d5db;
+        }
+
+        .hero-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+        }
+
+        .button {
+            padding: 12px 24px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: bold;
+            display: inline-block;
+        }
+
+        .button.primary {
+            background-color: #0078d4;
+            color: white;
+        }
+
+        .button.whatsapp {
+            background-color: #25d366;
+            color: white;
+        }
+
+        /* Secciones generales (Nosotros, Productos, Servicios) */
+        .content-section {
+            padding: 80px 20px;
+            max-width: 1000px;
+            margin: 0 auto;
+            text-align: center;
+            background: white;
+            margin-bottom: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+        }
+
+        .content-section h2 {
+            font-size: 32px;
+            color: #1c2b3a;
+            margin-bottom: 20px;
+        }
+
+        .content-section p {
+            font-size: 16px;
+            color: #666;
+        }
+
+        /* Sección de Contáctenos / Formulario */
+        .quote-section {
+            background-color: #eef2f7;
+            padding: 80px 20px;
+        }
+
+        .quote-wrapper {
+            max-width: 900px;
+            margin: 0 auto;
+            background: white;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+
+        .quote-info {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .section-label {
+            color: #0078d4;
+            font-weight: bold;
+            font-size: 14px;
+            letter-spacing: 1px;
+        }
+
+        .quote-info h2 {
+            font-size: 28px;
+            color: #1c2b3a;
+            margin: 10px 0;
+        }
+
+        .quote-form .form-row {
+            display: flex;
+            gap: 20px;
+            margin-bottom: 20px;
+        }
+
+        .quote-form .form-group {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            margin-bottom: 20px;
+        }
+
+        .quote-form label {
+            font-weight: bold;
+            margin-bottom: 5px;
+            color: #333;
+        }
+
+        .required {
+            color: #d9534f;
+        }
+
+        .optional {
+            color: #888;
+            font-size: 12px;
+            font-weight: normal;
+        }
+
+        .quote-form input,
+        .quote-form select,
+        .quote-form textarea {
+            padding: 12px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 15px;
+            outline: none;
+            transition: border-color 0.3s;
+        }
+
+        .quote-form input:focus,
+        .quote-form select:focus,
+        .quote-form textarea:focus {
+            border-color: #0078d4;
+        }
+
+        .form-error {
+            color: #d9534f;
+            font-size: 12px;
+            margin-top: 5px;
+        }
+
+        .input-error {
+            border-color: #d9534f !important;
+        }
+
+        .form-submit {
+            width: 100%;
+            border: none;
+            cursor: pointer;
+            font-size: 16px;
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="top-bar">
+        <div class="top-container">
+            <p>Calidad que se mira</p>
+            <div class="top-contact">
+                <span>📞 +505 8494 2067</span>
+                <a href="https://wa.me/50584942067" target="_blank">WhatsApp</a>
+            </div>
+        </div>
+    </div>
+
+    <header>
+        <div class="header-container">
+            <a href="#inicio" class="logo">Vidriería <strong>Garmendia</strong></a>
+            <nav>
+                <ul class="nav-links">
+                    <li><a href="#inicio">Inicio</a></li>
+                    <li><a href="#nosotros">Nosotros</a></li>
+                    <li><a href="#productos">Productos</a></li>
+                    <li><a href="#servicios">Servicios</a></li>
+                    <li><a href="#cotizacion">Contáctenos</a></li>
+                </ul>
+            </nav>
+            <!-- Botón superior configurado para llevar directamente a WhatsApp -->
+            <a href="https://wa.me/50584942067" target="_blank" class="header-button">Cotizar</a>
+        </div>
+    </header>
+
+    <main>
+        <section id="inicio" class="hero">
+            <div class="hero-content">
+                <p class="hero-small">VIDRIO • ALUMINIO • DISEÑO</p>
+                <h1>Calidad que se mira</h1>
+                <p class="hero-description">Diseñamos y fabricamos soluciones en vidrio y aluminio para hogares, negocios y proyectos.</p>
+                <div class="hero-buttons">
+                    <a href="#productos" class="button primary">Ver productos</a>
+                    <a href="https://wa.me/50584942067" target="_blank" class="button whatsapp">Cotizar por WhatsApp</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECCIÓN NOSOTROS -->
+        <section id="nosotros" class="content-section">
+            <h2>Nosotros</h2>
+            <p>Somos una empresa dedicada a brindar soluciones innovadoras en vidrio y aluminio, garantizando la mayor calidad y durabilidad en cada proyecto residencial y comercial.</p>
+        </section>
+
+        <!-- SECCIÓN PRODUCTOS -->
+        <section id="productos" class="content-section">
+            <h2>Nuestros Productos</h2>
+            <p>Explora nuestra amplia gama de ventanas de aluminio, puertas corredizas, vidrios fijos y vitrinas diseñadas a la medida.</p>
+        </section>
+
+        <!-- SECCIÓN SERVICIOS -->
+        <section id="servicios" class="content-section">
+            <h2>Servicios</h2>
+            <p>Ofrecemos instalación profesional, diseño personalizado y asesoría técnica especializada para garantizar los mejores resultados en tu obra.</p>
+        </section>
+
+        <!-- SECCIÓN CONTÁCTENOS / FORMULARIO -->
+        <section id="cotizacion" class="quote-section">
+            <div class="quote-wrapper">
+                <div class="quote-info">
+                    <span class="section-label">CONTÁCTENOS</span>
+                    <h2>¿Tienes un proyecto?</h2>
+                    <p>Completa el formulario para registrar tus datos en nuestro sistema y enviarnos tu solicitud de cotización.</p>
+                </div>
+
+                <div class="quote-form-box">
+                    <form id="formCotizacion" class="quote-form" onsubmit="enviarFormulario(event)" novalidate>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="nombres">Nombres <span class="required">*</span></label>
+                                <input type="text" id="nombres" name="nombres" placeholder="Ej. María" required autocomplete="given-name">
+                                <span class="form-error" id="error-nombres"></span>
+                            </div>
+                            <div class="form-group">
+                                <label for="apellidos">Apellidos <span class="required">*</span></label>
+                                <input type="text" id="apellidos" name="apellidos" placeholder="Ej. García López" required autocomplete="family-name">
+                                <span class="form-error" id="error-apellidos"></span>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="direccion">Dirección <span class="required">*</span></label>
+                            <input type="text" id="direccion" name="direccion" placeholder="Ej. Barrio La Paz, casa #12" required autocomplete="street-address">
+                            <span class="form-error" id="error-direccion"></span>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="telefono">Teléfono <span class="required">*</span></label>
+                                <input type="tel" id="telefono" name="telefono" placeholder="Ej. +505 8494 2067" required autocomplete="tel">
+                                <span class="form-error" id="error-telefono"></span>
+                            </div>
+                            <div class="form-group">
+                                <label for="correo">Correo electrónico <span class="required">*</span></label>
+                                <input type="email" id="correo" name="correo" required placeholder="Ej. maria@correo.com" autocomplete="email">
+                                <span class="form-error" id="error-correo"></span>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="producto">Producto que desea cotizar <span class="required">*</span></label>
+                            <select id="producto" name="producto" required>
+                                <option value="" disabled selected>Selecciona un producto...</option>
+                                <option value="Ventanas de aluminio y vidrio">Ventanas de aluminio y vidrio</option>
+                                <option value="Puertas corredizas">Puertas corredizas</option>
+                                <option value="Vidrios fijos">Vidrios fijos</option>
+                                <option value="Vitrinas">Vitrinas</option>
+                                <option value="Otro / Consultar">Otro / Consultar</option>
+                            </select>
+                            <span class="form-error" id="error-producto"></span>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="mensaje">Detalles adicionales <span class="optional">(opcional)</span></label>
+                            <textarea id="mensaje" name="mensaje" rows="3" placeholder="Medidas aproximadas, color, cantidad u otros detalles..."></textarea>
+                        </div>
+
+                        <div role="status" aria-live="polite" id="form-success" class="form-success" style="display:none; color: #155724; background-color: #d4edda; border: 1px solid #c3e6cb; padding: 10px; border-radius: 5px; margin-bottom: 15px; font-weight: bold; text-align: center;">
+                            ✅ ¡Datos guardados en la base de datos de Azure con éxito! Redirigiendo a WhatsApp...
+                        </div>
+
+                        <button type="submit" class="button whatsapp form-submit">
+                            Enviar
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script>
+        async function enviarFormulario(e) {
+            e.preventDefault();
+            var valido = true;
+
+            function validar(id, errorId, mensaje) {
+                var campo = document.getElementById(id);
+                var error = document.getElementById(errorId);
+                if (!campo.value.trim()) {
+                    error.textContent = mensaje;
+                    campo.classList.add('input-error');
+                    valido = false;
+                } else {
+                    error.textContent = '';
+                    campo.classList.remove('input-error');
+                }
+            }
+
+            validar('nombres',   'error-nombres',   'Por favor ingresa tu nombre.');
+            validar('apellidos', 'error-apellidos', 'Por favor ingresa tus apellidos.');
+            validar('direccion', 'error-direccion', 'Por favor ingresa tu dirección.');
+            validar('telefono',  'error-telefono',  'Por favor ingresa tu teléfono.');
+            validar('producto',  'error-producto',  'Por favor selecciona un producto.');
+            validar('correo',    'error-correo',    'Por favor ingresa tu correo electrónico.');
+            const correoInput = document.getElementById('correo');
+            if (correoInput.value.trim() && !correoInput.checkValidity()) {
+                document.getElementById('error-correo').textContent = 'Ingresa un correo electrónico válido.';
+                correoInput.classList.add('input-error');
+                valido = false;
+            }
+
+            if (!valido) return;
+
+            var nombres = document.getElementById('nombres').value.trim();
+            var apellidos = document.getElementById('apellidos').value.trim();
+            var direccion = document.getElementById('direccion').value.trim();
+            var telefono = document.getElementById('telefono').value.trim();
+            var emailVal = document.getElementById('correo').value.trim();
+            var producto = document.getElementById('producto').value;
+            var detalles = document.getElementById('mensaje').value.trim();
+
+            var nombreCompleto = nombres + ' ' + apellidos;
+
+            var datosContacto = {
+                Nombre: nombreCompleto,
+                Correo: emailVal,
+                Telefono: telefono,
+                Mensaje: 'Producto: ' + producto + ' | Dirección: ' + direccion + (detalles ? ' | Detalles: ' + detalles : '')
+            };
+
+            const boton = document.querySelector('#formCotizacion button[type="submit"]');
+            boton.disabled = true;
+            boton.textContent = 'Enviando...';
+            document.getElementById('form-success').style.display = 'none';
+
+            try {
+                // La página y la API comparten el mismo servidor ASP.NET Core.
+                const response = await fetch('/api/Contactos', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(datosContacto)
+                });
+
+                if (!response.ok) {
+                    const detalle = await response.text();
+                    console.error('Error de API:', response.status, detalle);
+                    alert('No se guardaron los datos. Respuesta HTTP: ' + response.status +
+                          '. Revisa la consola del navegador y los registros de la API.');
+                    return;
+                }
+
+                document.getElementById('form-success').textContent =
+                    '✅ Solicitud guardada correctamente. Puedes continuar por WhatsApp.';
+                document.getElementById('form-success').style.display = 'block';
+                document.getElementById('formCotizacion').reset();
+
+                const textoWhatsApp = [
+                    'Hola Vidriería Garmendia, quiero solicitar una cotización.',
+                    'Nombre: ' + nombreCompleto,
+                    'Producto: ' + producto,
+                    'Dirección: ' + direccion,
+                    'Teléfono: ' + telefono,
+                    'Mensaje: ' + detalles
+                ].join('\n');
+                const url = 'https://wa.me/50584942067?text=' + encodeURIComponent(textoWhatsApp);
+                // Enlace visible como alternativa cuando el navegador bloquea ventanas emergentes.
+                const aviso = document.getElementById('form-success');
+                const enlace = document.createElement('a');
+                enlace.href = url;
+                enlace.target = '_blank';
+                enlace.rel = 'noopener noreferrer';
+                enlace.textContent = ' Abrir WhatsApp';
+                enlace.style.marginLeft = '8px';
+                aviso.appendChild(enlace);
+            } catch (error) {
+                console.error('Error al contactar la API:', error);
+                alert('No fue posible comunicarse con la API. Comprueba que la aplicación esté ejecutándose.');
+            } finally {
+                boton.disabled = false;
+                boton.textContent = 'Enviar';
+            }
+        }
+    </script>
+</body>
+</html>

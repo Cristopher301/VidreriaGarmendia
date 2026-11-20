@@ -1,0 +1,16 @@
+@VidreriaGarmendia_HostAddress = http://localhost:5295
+
+### Consultar contactos
+GET {{VidreriaGarmendia_HostAddress}}/api/contactos
+Accept: application/json
+
+### Guardar contacto
+POST {{VidreriaGarmendia_HostAddress}}/api/contactos
+Content-Type: application/json
+
+{
+  "nombre": "Juan Perez",
+  "correo": "juan@gmail.com",
+  "telefono": "88888888",
+  "mensaje": "Solicito información"
+}
