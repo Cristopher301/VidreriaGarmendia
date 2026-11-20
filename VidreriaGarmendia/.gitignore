@@ -1,0 +1,8 @@
+bin/
+obj/
+.vs/
+*.user
+*.suo
+# Nunca subas contraseñas reales a GitHub
+appsettings.Production.json
+appsettings.Local.json
